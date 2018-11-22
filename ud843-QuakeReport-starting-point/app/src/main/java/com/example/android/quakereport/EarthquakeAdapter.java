@@ -1,6 +1,8 @@
 package com.example.android.quakereport;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -109,15 +111,9 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         String formattedMagnitude = formatMagnitude(currentEarthquake.getMagnitude());
 
         magnitudeView.setText(formattedMagnitude);
-
-
-
         String originalLocation = currentEarthquake.getLocation();
-
         String primaryLocation;
         String locationOffset;
-
-
         // Check whether the originalLocation string contains the " of " text
         if (originalLocation.contains(LOCATION_SEPARATOR)) {
             // Split the string into different parts (as an array of Strings)
@@ -165,10 +161,9 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         // Display the time of the current earthquake in that TextView
         timeView.setText(formattedTime);
 
-        GradientDrawable magnitudeCircle = (GradientDrawable)magnitudeView.getBackground();
+        GradientDrawable magnitudeCircle = (GradientDrawable) magnitudeView.getBackground();
         int magnitudeColor = getMagnitudeColor(currentEarthquake.getMagnitude());
         magnitudeCircle.setColor(magnitudeColor);
-
         return listItemView;
     }
 
